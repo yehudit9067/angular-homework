@@ -1,0 +1,15 @@
+<section class="report" dir="rtl" aria-labelledby="report-title">
+  <h2 id="report-title">ציונים</h2>
+
+  <ul class="report-list">
+    @for (item of grades; track item.subject) {
+      <li [class.is-failed]="item.grade < passingGrade">
+        <span>{{ item.subject }}</span>
+        <span class="grade">{{ item.grade }}%</span>
+        <span class="status">{{ item.grade >= passingGrade ? 'עבר' : 'נכשל' }}</span>
+      </li>
+    }
+  </ul>
+
+  <p class="average">ממוצע: <strong>{{ average }}%</strong></p>
+</section>

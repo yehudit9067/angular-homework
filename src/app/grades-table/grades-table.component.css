@@ -1,0 +1,130 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding: 32px 20px;
+	color: #173b3a;
+	font-family: "Segoe UI", Arial, sans-serif;
+	background-color: #f3f7f3;
+	background-image: radial-gradient(#b7cfc5 0.8px, transparent 0.8px);
+	background-size: 22px 22px;
+}
+
+.report {
+	width: min(100%, 460px);
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 34px 32px 30px;
+	border: 1px solid #d6e2dc;
+	border-top: 5px solid #16766b;
+	background: #fff;
+	box-shadow: 0 18px 55px rgb(23 59 58 / 10%);
+	animation: report-arrive 400ms ease-out both;
+}
+
+.report h2 {
+	margin: 0 0 22px;
+	color: #173b3a;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.report-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.report-list li {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	align-items: center;
+	gap: 14px;
+	padding: 13px 0;
+	border-bottom: 1px solid #e6eeea;
+}
+
+.report-list li:first-child {
+	border-top: 1px solid #e6eeea;
+}
+
+.grade {
+	color: #365451;
+	font-variant-numeric: tabular-nums;
+}
+
+.status {
+	min-width: 58px;
+	padding: 3px 10px;
+	border-radius: 999px;
+	background: #e8f3ee;
+	color: #16766b;
+	font-size: 13px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.is-failed .grade {
+	color: #b3372f;
+}
+
+.is-failed .status {
+	background: #fdecec;
+	color: #b3372f;
+}
+
+.average {
+	margin: 22px 0 0;
+	padding-top: 16px;
+	border-top: 2px solid #173b3a;
+	color: #365451;
+	font-size: 16px;
+}
+
+.average strong {
+	color: #173b3a;
+	font-size: 20px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+}
+
+.back-link {
+	display: inline-block;
+	margin-top: 18px;
+	color: #16766b;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.back-link:hover {
+	text-decoration: underline;
+}
+
+@keyframes report-arrive {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 480px) {
+	.report {
+		padding: 28px 22px;
+	}
+
+	.report-list li {
+		gap: 10px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.report {
+		animation: none;
+	}
+}

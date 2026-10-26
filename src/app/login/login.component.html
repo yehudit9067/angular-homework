@@ -1,0 +1,53 @@
+<main class="login-page" dir="rtl">
+  <section class="login-panel" aria-labelledby="login-title">
+    <div class="brand-mark" aria-hidden="true">ל</div>
+    <p class="eyebrow">סביבת למידה דיגיטלית</p>
+    <h1 id="login-title">כניסה להתקנת תוכנות לימודיות על המחשב</h1>
+
+    <form class="login-form" (submit)="onSubmit($event)">
+      <div class="field">
+        <label for="identity-number">מספר זהות</label>
+        <input
+          id="identity-number"
+          name="identityNumber"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          maxlength="9"
+          pattern="[0-9]{9}"
+          placeholder="הקלידו 9 ספרות"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="email-address">כתובת מייל</label>
+        <input
+          (input)="onEmailInput($event)"
+          (keydown)="onEmailEnter($event)"
+          id="email-address"
+          name="emailAddress"
+          type="email"
+          autocomplete="email"
+          placeholder="הכניסו כתובת מייל"
+          tabindex="0"
+          aria-describedby="email-hint"
+          required
+        />
+        <button type="button" class="suffix-button" (click)="addGmailSuffix()">&#64;gmail.com</button>
+        <span class="field-hint" id="email-hint" role="note">כתובת אימייל היא שדה חובה</span>
+        @if (emailConfirmation !== '') {
+          <p class="email-confirmation" dir="ltr" role="status">{{ emailConfirmation }}</p>
+        }
+      </div>
+
+      <label class="terms-option" for="termsAccepted">
+        <input id="termsAccepted" name="termsAccepted" type="checkbox" required />
+        <span>האם קראת ואישרת את התקנון</span>
+      </label>
+
+      <button type="submit">היכנס</button>
+    </form>
+  </section>
+</main>
+
